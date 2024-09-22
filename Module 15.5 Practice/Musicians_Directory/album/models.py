@@ -2,18 +2,18 @@ from django.db import models
 from musician.models import Musician
 # Create your models here.
 class Album(models.Model):
-    albm_name = models.CharField(max_length=50)
+    album_name = models.CharField(max_length=50)
     date = models.DateTimeField(auto_now_add=True)
     RATING_CHOICES = [
-        (1, 'One'),
-        (2, 'Two'),
-        (3, 'Three'),
-        (4, 'Four'),
-        (5, 'Five'),
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),
     ]
     rating = models.IntegerField(choices=RATING_CHOICES)
-    musician = models.ForeignKey(Musician, on_delete=models.CASCADE)
+    musician = models.ForeignKey(Musician, related_name='albums', on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.albm_name
+        return self.album_name
     

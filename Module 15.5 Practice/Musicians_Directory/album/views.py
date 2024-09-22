@@ -11,3 +11,4 @@ def add_album(request):
     else:
         album_form = forms.AlbumForm()
     return render(request, 'add_album.html', {'form': album_form})
+
